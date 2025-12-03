@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card with Header Content Footer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            background: white;
+            padding: 40px;
+        }
+
+
+        .card {
+            width: 320px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .card-header {
+            background: blue;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        .card-content {
+            padding: 15px;
+            color: brown;
+        }
+
+
+        .card-footer {
+            padding: 12px 15px;
+            background: white;
+            text-align: right;
+        }
+
+        .card-footer .btn {
+            padding: 8px 14px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .card-footer .btn:hover {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Card with Header, Content, Footer</h1>
+
+    <div class="card">
+
+
+        <div class="card-header">
+            Card Header
+        </div>
+
+
+        <div class="card-content">
+            <p>
+                This is the content area of the card.
+                You can write any text, add images, or place other elements inside this section.
+            </p>
+        </div>
+
+
+        <div class="card-footer">
+            <a href="#" class="btn">Action</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
