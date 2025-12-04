@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: "Roboto", sans-serif;
+  background: white;
+  padding: 40px;
+}
+
+
+.md-select {
+  position: relative;
+  width: 260px;
+  margin-bottom: 20px;
+}
+
+.md-select select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+/* Arrow icon */
+.md-select:after {
+  content: "▼";
+  font-size: 14px;
+  color: grey;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Hover elevation */
+.md-select select:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Focus effect */
+.md-select select:focus {
+  border: 2px solid #3f51b5;
+  box-shadow: 0 6px 14px rgba(63,81,181,0.3);
+}
+
+/* LIST STYLE*/
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+ul li {
+  padding: 15px;
+  background: white;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+}
+</style>
+</head>
+
+<body>
+
+<h2>Material Design Dropdown Filter</h2>
+
+
+<div class="md-select">
+  <select id="filterSelect" onchange="filterList()">
+    <option value="all">Show All</option>
+    <option value="fruit">Fruits</option>
+    <option value="veg">Vegetables</option>
+  </select>
+</div>
+
+
+<ul id="items">
+  <li data-type="fruit">Apple</li>
+  <li data-type="fruit">Banana</li>
+  <li data-type="veg">Carrot</li>
+  <li data-type="veg">Tomato</li>
+  <li data-type="fruit">Mango</li>
+  <li data-type="veg">Onion</li>
+</ul>
+
+<script>
+function filterList() {
+  let value = document.getElementById("filterSelect").value;
+  let items = document.querySelectorAll("#items li");
+
+  items.forEach(item => {
+    let type = item.getAttribute("data-type");
+
+    if (value === "all" || value === type) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

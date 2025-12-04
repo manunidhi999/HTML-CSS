@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Responsive Website</title>
+
+<style>
+    /* BASIC RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+    }
+
+    body {
+        background: white;
+        line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+        background: purple;
+        padding: 15px 30px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        opacity: 0.7;
+    }
+
+    /*  HERO SECTION */
+    .hero {
+        background: linear-gradient(120deg, purple, lavender);
+        padding: 80px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .btn {
+        background: white;
+        color: purple;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        background: white;
+    }
+
+    /* CARD SECTION*/
+    .cards {
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        color: purple;
+    }
+
+    /* FORM SECTION*/
+    .form-section {
+        background: white;
+        padding: 40px 20px;
+        margin: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: 1px solid white;
+        font-size: 16px;
+    }
+
+    form button {
+        background: purple;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    form button:hover {
+        background: purple;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: purple;
+        color: white;
+        margin-top: 40px;
+    }
+
+    /* RESPONSIVE*/
+    @media (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .hero h1 {
+            font-size: 30px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">MyWebsite</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Cards</a></li>
+        <li><a href="#">Form</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Welcome to My Responsive Website</h1>
+    <p>This site covers all basic CSS topics with a simple layout.</p>
+    <button class="btn">Learn More</button>
+</section>
+
+<!-- CARDS -->
+<section class="cards">
+    <div class="card">
+        <h3>Flexbox</h3>
+        <p>Learn how to align items easily using CSS Flexbox.</p>
+    </div>
+
+    <div class="card">
+        <h3>Grid</h3>
+        <p>CSS Grid helps you build modern layouts quickly.</p>
+    </div>
+
+    <div class="card">
+        <h3>Animations</h3>
+        <p>CSS transitions and animations bring designs to life.</p>
+    </div>
+</section>
+
+<!-- FORM -->
+<div class="form-section">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<footer>
+    © 2025 MyWebsite — All Rights Reserved
+</footer>
+
+</body>
+</html>

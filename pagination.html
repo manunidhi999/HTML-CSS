@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+            font-family: Arial, sans-serif;
+        }
+
+        .pagination  a {
+            padding: 8px 14px;
+            border: 1px solid grey;
+            border-radius: 6px;
+            text-decoration: none;
+            color: grey;
+            transition: 0.3s;
+        }
+
+        .pagination .active {
+            background: blue;
+            color: white;
+            border-color: blue;
+        }
+
+        .pagination a:hover {
+            background: white;
+        }
+
+        .arrow {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pagination">
+        <a href="#" class="arrow prev">←</a>
+        <a href="#" class="page active">1</a>
+        <a href="#" class="page">2</a>
+        <a href="#" class="page">3</a>
+        <a href="#" class="page">4</a>
+        <a href="#" class="arrow next">→</a>
+    </div>
+
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+}
+
+/* Base style for numbers */
+.pagination a {
+  text-decoration: none;
+  border: 1px solid grey;
+  color: brown;
+  border-radius: 6px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ACTIVE PAGE */
+.pagination .active {
+  background: blue;
+  color: white;
+  border-color: blue;
+}
+
+
+.pagination a:hover {
+  background: white;
+  border-color: grey;
+}
+
+/*SIZE CONTROLS */
+
+/* Small Pagination */
+.pagination.small a {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Medium Pagination */
+.pagination.medium a {
+  padding: 8px 14px;
+  font-size: 16px;
+}
+
+/* Large Pagination */
+.pagination.large a {
+  padding: 12px 20px;
+  font-size: 20px;
+}
+
+
+.arrow {
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Small</h2>
+<div class="pagination small">
+  <a href="#" class="arrow">←</a>
+  <a href="#" class="page active">1</a>
+  <a href="#" class="page">2</a>
+  <a href="#" class="page">3</a>
+  <a href="#" class="arrow">→</a>
+</div>
+
+<h2 style="text-align:center;">Medium</h2>
+<div class="pagination medium">
+  <a href="#" class="arrow">←</a>
+  <a href="#" class="page active">1</a>
+  <a href="#" class="page">2</a>
+  <a href="#" class="page">3</a>
+  <a href="#" class="arrow">→</a>
+</div>
+
+<h2 style="text-align:center;">Large</h2>
+<div class="pagination large">
+  <a href="#" class="arrow">←</a>
+  <a href="#" class="page active">1</a>
+  <a href="#" class="page">2</a>
+  <a href="#" class="page">3</a>
+  <a href="#" class="arrow">→</a>
+</div>
+
+</body>
+</html>

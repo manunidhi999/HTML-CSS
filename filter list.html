@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+/* Dropdown style */
+#categoryFilter {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+}
+
+/* Search box */
+#searchInput {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+/* List items */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 10px;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
+ul li:hover {
+  background: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Filter List</h2>
+
+<input type="text" id="searchInput" placeholder="Search..." onkeyup="filterList()">
+
+<ul id="myList">
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Mango</li>
+  <li>Orange</li>
+  <li>Pineapple</li>
+  <li>Watermelon</li>
+  <li>Grapes</li>
+</ul>
+
+<script>
+function filterList() {
+  let input = document.getElementById("searchInput");
+  let filter = input.value.toLowerCase();
+  let ul = document.getElementById("myList");
+  let li = ul.getElementsByTagName("li");
+
+  for (let i = 0; i < li.length; i++) {
+    let text = li[i].textContent || li[i].innerText;
+
+    if (text.toLowerCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
