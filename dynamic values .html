@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher</title>
+  <style>
+    /* GLOBAL VARIABLES */
+    :root {
+      --bg: white;
+      --text: black;
+      --card-bg: #f3f3f3;
+      --button-bg: black;
+      --button-text: white;
+    }
+
+    /* DARK THEME VARIABLES */
+    .dark {
+      --bg: #111;
+      --text: #f1f1f1;
+      --card-bg: #1e1e1e;
+      --button-bg: #f1f1f1;
+      --button-text: #111;
+    }
+
+    /* GLOBAL STYLING */
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    #theme-btn {
+      background: var(--button-bg);
+      color: var(--button-text);
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    /* CARDS */
+    .cards {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      transition: 0.3s ease;
+    }
+
+    .card .btn {
+      margin-top: 10px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Theme Switcher Demo</h1>
+    <button id="theme-btn">Dark Theme</button>
+  </header>
+
+  <section class="cards">
+    <div class="card">
+      <h2>Card One</h2>
+      <p>This card automatically changes theme using CSS variables.</p>
+      <button class="btn">Click</button>
+    </div>
+
+    <div class="card">
+      <h2>Card Two</h2>
+      <p>Variables make styling flexible.</p>
+      <button class="btn">Click</button>
+    </div>
+  </section>
+
+  <script>
+    let body = document.body;
+    let themeBtn = document.getElementById("theme-btn");
+
+    themeBtn.onclick = function () {
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("dark")) {
+        themeBtn.textContent = "Light Theme";
+      } else {
+        themeBtn.textContent = "Dark Theme";
+      }
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic CSS Example</title>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            transition: 0.3s;
+            margin: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <button onclick="changeStyle()">Change Style</button>
+
+    <script>
+        function changeStyle() {
+            const box = document.getElementById("box");
+
+            box.style.width = "200px";           // dynamic width
+            box.style.height = "150px";          // dynamic height
+            box.style.backgroundColor = "orange"; // dynamic color
+            box.style.borderRadius = "20px";     // dynamic border radius
+        }
+    </script>
+
+</body>
+
+</html>

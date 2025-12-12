@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Complete Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+
+        h2 {
+            margin-top: 35px;
+            color: #222;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .box {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4a90e2;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>⭐ CSS Complete Cheat Sheet (All Selectors + Units + Global Keywords)</h1>
+
+
+    <!-- SELECTORS -->
+    <h2>1. Basic Selectors</h2>
+    <div class="box">
+        <code>*</code> → Universal selector
+        <code>p</code> → Element selector
+        <code>.box</code> → Class selector
+        <code>#title</code> → ID selector
+        <code>h1, h2</code> → Grouping
+    </div>
+
+
+    <h2>2. Combinators</h2>
+    <div class="box">
+        <code>div p</code> → descendant
+        <code>div > p</code> → direct child
+        <code>h1 + p</code> → adjacent sibling
+        <code>h1 ~ p</code> → general sibling
+    </div>
+
+
+    <h2>3. Pseudo-Classes</h2>
+    <div class="box">
+        <code>:hover</code>, <code>:active</code>, <code>:focus</code>,
+        <code>:checked</code>, <code>:disabled</code>, <code>:visited</code>,
+        <code>:first-child</code>, <code>:last-child</code>,
+        <code>:nth-child(n)</code>, <code>:not()</code>
+    </div>
+
+
+    <h2>4. Pseudo-Elements</h2>
+    <div class="box">
+        <code>::before</code>
+        <code>::after</code>
+        <code>::first-letter</code>
+        <code>::first-line</code>
+        <code>::placeholder</code>
+        <code>::selection</code>
+    </div>
+
+
+    <h2>5. Attribute Selectors</h2>
+    <div class="box">
+        <code>a[href]</code> → has attribute
+        <code>a[href="google.com"]</code> → exact match
+        <code>a[href^="https"]</code> → starts with
+        <code>a[href$=".pdf"]</code> → ends with
+        <code>a[href*="login"]</code> → contains
+    </div>
+
+
+    <!-- PROPERTIES -->
+    <h2>6. CSS Property Categories</h2>
+
+    <h3>Layout</h3>
+    <div class="box">
+        display, position, z-index, float, clear, overflow
+    </div>
+
+    <h3>Box Model</h3>
+    <div class="box">
+        width, height, padding, margin, border, box-sizing
+    </div>
+
+    <h3>Flexbox</h3>
+    <div class="box">
+        display:flex, justify-content, align-items, gap, flex-wrap
+    </div>
+
+    <h3>Grid</h3>
+    <div class="box">
+        display:grid, grid-template-columns, grid-template-rows, gap
+    </div>
+
+    <h3>Typography</h3>
+    <div class="box">
+        color, font-size, font-weight, text-align, text-decoration
+    </div>
+
+    <h3>Background</h3>
+    <div class="box">
+        background-color, background-image, background-size
+    </div>
+
+    <h3>Effects</h3>
+    <div class="box">
+        opacity, filter, transform, transition, animation
+    </div>
+
+
+    <!-- UNITS -->
+    <h2>7. CSS Units</h2>
+    <div class="box">
+        <strong>Length Units:</strong> px, %, em, rem, vh, vw, ch, ex, fr
+        <strong>Color:</strong> hex, rgb(), rgba(), hsl()
+        <strong>Time:</strong> s, ms
+        <strong>Angle:</strong> deg, rad, turn
+    </div>
+
+
+    <!-- GLOBAL VALUES -->
+    <h2>8. Global CSS Keywords</h2>
+    <div class="box">
+        <code>inherit</code> – takes parent value<br>
+        <code>initial</code> – reset to default value<br>
+        <code>unset</code> – remove (initial + inherit)<br>
+        <code>auto</code> – browser decides<br>
+        <code>none</code> – no value<br>
+        <code>revert</code> – revert to user-agent stylesheet<br>
+        <code>revert-layer</code> – revert previous layer
+    </div>
+
+</body>
+
+</html>

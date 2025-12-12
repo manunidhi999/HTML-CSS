@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Class Example</title>
+
+    <style>
+        /* Default box style */
+        #box {
+            transition: 0.3s;
+            margin: 20px;
+        }
+
+        /* Style 1 */
+        .small {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+        }
+
+        /* Style 2 */
+        .large {
+            width: 250px;
+            height: 150px;
+            background: tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box" class="small"></div>
+
+    <button onclick="toggleBox()">Toggle Style</button>
+
+    <script>
+        function toggleBox() {
+            const box = document.getElementById("box");
+
+            // If box has "small", replace with "large"
+            if (box.classList.contains("small")) {
+                box.classList.remove("small");
+                box.classList.add("large");
+            }
+            else {
+                // If large, switch back to small
+                box.classList.remove("large");
+                box.classList.add("small");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

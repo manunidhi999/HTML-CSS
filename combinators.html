@@ -1,91 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS —  Combinators </title>
-    <style>
-        /* Grandparent styling */
-        .grandparent {
-            border: 5px solid black;
-            padding: 30px;
-            background: yellow;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS — Combinators (with General Sibling)</title>
+  <style>
+    /* Grandparent styling */
+    .grandparent {
+      border: 5px solid black;
+      padding: 30px;
+      background: yellow;
+    }
 
-        /*  Descendant combinator: style all descendants */
-        .grandparent * {
-            font-family: Verdana, sans-serif;
-        }
+    /* Descendant combinator: style all descendants */
+    .grandparent * {
+      font-family: Verdana, sans-serif;
 
-        /*Child combinator (>): style only direct .parent children of .grandparent */
-        .grandparent>.parent  {
-            border: 5px solid blue;
-            padding: 10px;
-            margin: 5px 0;
-            background: white;
-        }
+    }
 
+    /* Child combinator: style only direct .parent children of .grandparent */
+    .grandparent > .parent {
+      border: 5px solid blue;
+      padding: 10px;
+      margin: 5px 0;
+      background: white;
+    }
 
-        /*  Descendant combinator: style .child anywhere under .grandparent */
-        .grandparent .child {
-            color: darkgreen;
-            font-size: 20px;
-        }
+    /* Descendant combinator: style .child anywhere under .grandparent */
+    .grandparent .child:nth-child(1){
+      color: red;
+      font-size: 20px;
+    }
 
-        /*  Child combinator: style only .child that are direct children of .parent */
-        .parent>.child {
-            background: white;
-            padding: 4px;
-            margin: 2px 0;
-        }
+    /* Child combinator: style only .child that are direct children of .parent */
+    .parent > .child {
+      background: white;
+      padding: 4px;
+      margin: 2px 0;
+    }
 
-        /* nth-child to style children by position */
-        .parent>.child:nth-child(1) {
-            font-weight: bold;
-        }
+    /* nth-child to style children by position */
+    .parent > .child:nth-child(1) {
+      font-weight: bold;
+    }
 
-        .parent>.child:nth-child(2) {
-            color: red;
-            font-weight: normal;
-        }
+    .parent > .child:nth-child(2) {
+      color: red;
+      font-weight: normal;
+    }
 
-        .parent>.child:nth-child(3) {
-            color: blue;
-            font-weight: bold;
-        }
+    .parent > .child:nth-child(3) {
+      color: blue;
+      font-weight: bold;
+    }
 
-        /*  Adjacent sibling combinator (+): style a .note that immediately follows a .child */
-        .child+.note {
-            font-style: italic;
-            color: purple;
-        }
+    /* Adjacent sibling combinator (+): style a .note that immediately follows a .child */
+    .child + .note {
+      font-style: italic;
+      color: purple;
+    }
 
-    </style>
+    /* General sibling combinator (~): style all .note elements that come after any .child under same parent */
+    .child ~ .note {
+      background: lightgray;
+      padding: 2px 4px;
+    }
+
+  </style>
 </head>
-
 <body>
 
-    <div class="grandparent">
-        GRANDPARENT
-        <div class="parent">
-            PARENT 1
-            <div class="child">Child A</div>
-            <div class="note">Note after Child 1(adjacent to Child 1)</div>
-            <div class="child">Child B</div>
-            <div class="child">Child C</div>
-            <div class="note">Another note after Child 3 (non-adjacent sibling)</div>
-        </div>
-
-        <div class="parent">
-            PARENT 2
-            <div class="child">Child A</div>
-            <div class="child">Child B</div>
-            <div class="note">Note after Child B</div>
-            
-        </div>
+  <div class="grandparent">
+    GRANDPARENT
+    <div class="parent">
+      PARENT 1
+      <div class="child">Child A</div>
+      <div class="note">Note after Child 1 (adjacent to Child 1)</div>
+      <div class="child">Child B</div>
+      <div class="child">Child C</div>
+      <div class="note">Another note after Child 3 (non-adjacent sibling)</div>
     </div>
 
-</body>
+    <div class="parent">
+      PARENT 2
+      <div class="child">Child A</div>
+      <div class="child">Child B</div>
+      <div class="note">Note after Child B</div>
+    </div>
+  </div>
 
+</body>
 </html>
