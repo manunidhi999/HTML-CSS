@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, black, white);
+        }
+
+        .slider {
+            width: 80%;
+            max-width: 600px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: black;
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+      
+        .dots {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <img id="sliderImg" src="" alt="slider image">
+
+
+        <button class="btn prev" onclick="prevImage()">❮</button>
+        <button class="btn next" onclick="nextImage()">❯</button>
+
+        <div class="dots" id="dots"></div>
+    </div>
+
+    <script>
+        const images = [
+            "scenery_1.png",
+            "scenery_2.png",
+            "scenery_3.png",
+            "scenery_4.png"
+        ];
+
+        let index = 0;
+        const img = document.getElementById("sliderImg");
+        const dotsContainer = document.getElementById("dots");
+
+        images.forEach((_, i) => {
+            const dot = document.createElement("div");
+            dot.className = "dot";
+            dot.onclick = () => showImage(i);
+        });
+
+        function showImage(i) {
+            index = i;
+            img.src = images[index];
+            updateDots();
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage(index);
+        }
+
+        function prevImage() {
+            index = (index - 1) % images.length;
+            showImage(index);
+        }
+
+        function updateDots() {
+            document.querySelectorAll(".dot").forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        }
+
+        showImage(index);
+        </script>
+    </body>
+</html>
