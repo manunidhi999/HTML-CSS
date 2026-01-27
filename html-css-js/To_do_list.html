@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app {
+            background: #fff;
+            width: 320px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5563d6;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 15px;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin-bottom: 6px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            color: gray;
+            background: #e0e0e0;
+        }
+
+        .delete {
+            background: none;
+            border: none;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h2>📝 To-Do List</h2>
+
+        <div class="input-group">
+            <input type="text" id="todoInput" placeholder="Add a task">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+        const input = document.getElementById("todoInput");
+        const addBtn = document.getElementById("addBtn");
+        const list = document.getElementById("todoList");
+
+        function saveTodos() {
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+        function renderTodos() {
+            list.innerHTML = "";
+
+            todos.forEach((todo, index) => {
+                const li = document.createElement("li");
+                li.textContent = todo.text;
+
+                if (todo.completed) {
+                    li.classList.add("completed");
+                }
+
+                li.onclick = () => toggleTodo(index);
+
+                const delBtn = document.createElement("button");
+                delBtn.textContent = "❌";
+                delBtn.className = "delete";
+                delBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    deleteTodo(index);
+                };
+
+                li.appendChild(delBtn);
+                list.appendChild(li);
+            });
+        }
+
+        function addTodo() {
+            const text = input.value.trim();
+            if (text === "") return;
+
+            todos.push({ text: text, completed: false });
+            input.value = "";
+
+            saveTodos();
+            renderTodos();
+        }
+
+        function toggleTodo(index) {
+            todos[index].completed = !todos[index].completed;
+            saveTodos();
+            renderTodos();
+        }
+
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            saveTodos();
+            renderTodos();
+        }
+
+        addBtn.addEventListener("click", addTodo);
+
+        input.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                addTodo();
+            }
+        });
+
+        renderTodos();
+    </script>
+</body>
+
+</html>
