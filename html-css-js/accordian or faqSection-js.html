@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accordion FAQ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .faq-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid white;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+        }
+
+        .faq-question span {
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 15px 15px;
+            font-size: 14px;
+            color: grey;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="faq-container">
+        <h2>FAQs</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is an accordion?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                An accordion shows and hides content when a button is clicked.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                When does the answer appear?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                The answer appears only after clicking the question button.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is class toggling?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Class toggling means adding or removing a CSS class using JavaScript.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll(".faq-question");
+
+        questions.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btn.parentElement.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
