@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Friendly Modal Popup</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .open-btn {
+            padding: 14px 28px;
+            font-size: 16px;
+            border: none;
+            background: purple;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .open-btn:hover {
+            background: purple;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: white;
+            width: 320px;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            transform: scale(0.8);
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        .overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal h2 {
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .modal p {
+            font-size: 14px;
+            color: grey;
+            margin-bottom: 20px;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: grey;
+        }
+
+        .close-btn:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="open-btn" id="openModal">Open Popup</button>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <h2>Hello 👋</h2>
+            <p>This is a user-friendly modal popup using HTML, CSS & JavaScript.</p>
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = document.getElementById("closeModal");
+        const overlay = document.getElementById("overlay");
+
+        openBtn.addEventListener("click", () => {
+            overlay.classList.add("active");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            overlay.classList.remove("active");
+        });
+
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
