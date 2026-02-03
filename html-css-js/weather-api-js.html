@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #60a5fa, #38bdf8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #111827;
+        }
+
+        .weather-app {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="weather-app">
+        <h2>🌦️ Weather App</h2>
+
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button id="getWeather">Get Weather</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const apiKey = "3f07a720cf78f269cb005a8811e78dd9"; // OpenWeather API key
+        const button = document.getElementById("getWeather");
+        const result = document.getElementById("result");
+
+        button.addEventListener("click", () => {
+            const city = document.getElementById("cityInput").value;
+
+            if (city === "") {
+                result.innerHTML = "<p class='error'>Please enter a city name</p>";
+                return;
+            }
+
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod !== 200) {
+                        result.innerHTML = "<p class='error'>City not found</p>";
+                        return;
+                    }
+
+                    result.innerHTML = `
+            <p><strong>${data.name}</strong></p>
+            <p>🌡️ Temperature: ${data.main.temp} °C</p>
+            <p>☁️ Weather: ${data.weather[0].description}</p>
+            <p>💨 Wind: ${data.wind.speed} m/s</p>
+          `;
+                })
+                .catch(() => {
+                    result.innerHTML = "<p class='error'>Error fetching data</p>";
+                });
+        });
+    </script>
+
+</body>
+
+</html>
